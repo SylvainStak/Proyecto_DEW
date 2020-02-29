@@ -1,4 +1,48 @@
 [id$="Login"] {
   cursor: pointer;
 }
+
+#createUserDiv {
+  width: 50%;
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  padding: 10px;
+}
+
+label {
+  color: white;
+}
+
+i {
+  color: blue;
+}
+
+#login_card {
+  width: 50%;
+  margin: auto;
+}
+
+#githubLogin i {
+  color: rgba(0, 0, 0, 0.9);
+}
+
+input {
+  padding: 2px;
+  width: 100%;
+  border-radius: 25px;
+  border: none;
+  border-left: 2px solid lightgray;
+  border-right: 2px solid lightgray;
+  border-bottom: 2px solid lightgray;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+input:focus {
+  outline-width: 0;
+  border-radius: 0px;
+  border-color: gray;
+  border-left: none;
+  border-right: none;
+}
 /*# sourceMappingURL=login.css.map */
