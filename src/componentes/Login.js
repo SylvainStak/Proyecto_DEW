@@ -4,6 +4,7 @@ import * as firebase from 'firebase/app';
 import 'firebase/auth';
 import firebaseCfg from '../firebase';
 import '../css/login.css';
+import { Link} from 'react-router-dom';
 
 const firebaseApp = firebase.initializeApp(firebaseCfg);
 
@@ -41,7 +42,7 @@ class Login extends Component{
                 <div className="d-flex justify-content-around w-25 m-auto">
                 {
                 !user
-                    ? <span id="googleLogin" onClick={signInWithGithub}>
+                    ? <span id="googleLogin" onClick={signInWithGoogle}>
                         <i className="fab fa-google fa-3x text-danger"></i>
                     </span>
                     : ''
@@ -66,14 +67,17 @@ class Login extends Component{
                     ''
                 }
                 
-                <span id="phoneLogin" onClick={this.showPhoneModal}>
+                {/* <span id="phoneLogin" onClick={this.showPhoneModal}>
                     <i className="fas fa-phone fa-3x text-success"></i>
-                </span>
+                </span> */}
                 </div>
 
                 <br/>
                 <label>Si aún no dispone de una cuenta:</label><br/>
-                <button className="btn btn-warning"><i className="fas fa-user"></i> Crear Cuenta</button>
+                <Link to="/newUser"> 
+                    <button className="btn btn-warning"><i className="fas fa-user"></i> Crear Cuenta</button>
+                </Link>
+                
             </div>
         );
     }
@@ -91,5 +95,3 @@ export default withFirebaseAuth({
   providers,
   firebaseAppAuth,
 })(Login);
-
-//export default Login;
