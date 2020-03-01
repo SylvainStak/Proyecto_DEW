@@ -3,7 +3,7 @@ import * as firebase from 'firebase/app';
 import 'firebase/auth';
 import { Redirect } from 'react-router';
 import { Link} from 'react-router-dom';
-import '../css/newUser.css';
+import '../css/login.css';
 
 class newUser extends Component{
 
@@ -39,16 +39,12 @@ class newUser extends Component{
         }
     }
 
-    test(){
-        console.log(firebase.auth().currentUser);
-        console.log(window.location.href);
-    }
-
     render(){
         const { redirect } = this.state;
         if (redirect) {
             return <Redirect to='/login'/>;
         }
+        
         return(
             <React.Fragment>
                 <h1 className="text-center text-primary">Nuevo Usuario</h1>
@@ -72,7 +68,6 @@ class newUser extends Component{
                     </form>
 
                 </div>
-                <button onClick={() => this.test()}>Prueba</button>
             </React.Fragment>
         );
     }

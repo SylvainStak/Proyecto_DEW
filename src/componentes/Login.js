@@ -13,21 +13,17 @@ const firebaseApp = firebase.initializeApp(firebaseCfg);
 class Login extends Component{ 
 
     state = {
-        redirect: false
+        redirect: false,
+        destino: ''
     }
 
     email = React.createRef();
     password = React.createRef();
-     
-
-    showPhoneModal(){        
-        console.log('hola');
-    }
 
     iniciarSesion(email, password){
         firebase.auth().signInWithEmailAndPassword(email, password)
         .then(() => {
-            this.setState({ redirect: true });
+            this.setState({ redirect: true, destino: '/login' });
         })
         .catch(() => {
             alert('Debe introducir los credenciales correctos');
@@ -37,7 +33,7 @@ class Login extends Component{
     render(){
         const { redirect } = this.state;
         if (redirect) {
-            return <Redirect to='/login'/>;
+            return <Redirect to={this.state['destino']}/>;
         }
         const {
             user,
@@ -85,14 +81,17 @@ class Login extends Component{
                     : ''
                 }
                 {
+                !user
+                    ? <span id="phoneLogin" onClick={() => this.setState({redirect: true, destino: '/phoneLogin'})}>
+                        <i className="fas fa-phone fa-3x text-success"></i>
+                    </span> 
+                    : ''
+                }
+                {
                     user ?
                     <button onClick={signOut}>Sign Out</button>:
                     ''
                 }
-                
-                {/* <span id="phoneLogin" onClick={this.showPhoneModal}>
-                    <i className="fas fa-phone fa-3x text-success"></i>
-                </span> */}
                 </div>
 
                 <br/>
