@@ -39,13 +39,13 @@ class Mostrador extends Component{
     render(){
 
         var listaCampeones = this.state.campeones.map((champ, index) => {
-            return(<Link to={{
-                pathname: '/tylermcginnis',
+            return(<Link key={index} to={{
+                pathname: '/personaje',
                 state: {
-                  fromNotifications: true
+                  nombre: champ.nombre
                 }
               }}>
-                <div key={index} className="champ bg-light"> 
+                <div  className="champ bg-light"> 
                     <img src={require(`../../public/champion/${champ.img}`)} alt="img"/>                   
                     <p className="text-center font-weight-bold text-dark">{champ.nombre}</p>                    
                 </div></Link>

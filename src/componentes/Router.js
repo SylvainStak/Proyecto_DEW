@@ -4,6 +4,7 @@ import Login from './Login';
 import newUser from './newUser';
 import phoneLogin from './phoneLogin';
 import Mostrador from './Mostrador';
+import Personaje from './Personaje';
 
 class Router extends Component{
     render(){
@@ -16,6 +17,7 @@ class Router extends Component{
                     <Route exact path="/newUser" component={newUser} />
                     <Route exact path="/phoneLogin" component={phoneLogin} />
                     <Route exact path="/mostrador" component={Mostrador} />
+                    <Route exact path="/personaje" component={Personaje} />
                 </Switch>
             </BrowserRouter>
         );
