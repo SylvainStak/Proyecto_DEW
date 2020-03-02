@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import Login from './Login';
 import newUser from './newUser';
 import phoneLogin from './phoneLogin';
+import Mostrador from './Mostrador';
 
 class Router extends Component{
     render(){
@@ -14,6 +15,7 @@ class Router extends Component{
                     <Route exact path="/home" component={Login} />
                     <Route exact path="/newUser" component={newUser} />
                     <Route exact path="/phoneLogin" component={phoneLogin} />
+                    <Route exact path="/mostrador" component={Mostrador} />
                 </Switch>
             </BrowserRouter>
         );

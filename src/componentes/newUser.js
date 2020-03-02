@@ -30,9 +30,10 @@ class newUser extends Component{
             firebase.auth().createUserWithEmailAndPassword(email, password)
             .then(() => {
                 this.setState({ redirect: true });
+                firebase.auth().loginWithEmailAndPassword(email, password)
             })
             .catch(err => {
-                alert('Ha habido un error');
+                
             });
         }else{
             alert(msg);
@@ -42,7 +43,7 @@ class newUser extends Component{
     render(){
         const { redirect } = this.state;
         if (redirect) {
-            return <Redirect to='/login'/>;
+            return <Redirect to='/mostrador'/>;
         }
         
         return(

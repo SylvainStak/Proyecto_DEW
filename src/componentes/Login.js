@@ -23,7 +23,7 @@ class Login extends Component{
     iniciarSesion(email, password){
         firebase.auth().signInWithEmailAndPassword(email, password)
         .then(() => {
-            this.setState({ redirect: true, destino: '/login' });
+            this.setState({ redirect: true, destino: '/mostrador' });
         })
         .catch(() => {
             alert('Debe introducir los credenciales correctos');
